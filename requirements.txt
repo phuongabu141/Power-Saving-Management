@@ -1,0 +1,6 @@
+Django
+django-braces
+mysqlclient
+six
+python-dateutil
+pandas

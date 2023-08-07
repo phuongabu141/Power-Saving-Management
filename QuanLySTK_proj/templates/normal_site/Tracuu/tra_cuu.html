@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu</title>
+    <link rel="stylesheet" href="{% static 'css/tra_Cuu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer_header.css' %}">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="homeHeader">
+        <div class="homeHeaderLogo">
+            <p>UIT SAVE</p>
+            <img src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                alt="" />
+        </div>
+        <div class="homeHeaderUser">
+            <a href="{%url 'normal_site:profile' user.username%} ">
+                <div class="infoUser">
+                    <p class="username">{{user.username}}</p>
+                    <p class="positon">{{position}}</p>
+                </div>
+                <div class="logoUser">
+                    <img src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+                        alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="homeBody">
+        {% for message in messages %}
+
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+
+        {% endfor %}
+
+        <div class="content-container">
+            <div class="wrapper">
+                <h1 class="title">Tra cứu</h1>
+                <hr>
+                <div class="search-area">
+                    <form method="POST" action="/home/tra_cuu/">
+                        {% csrf_token %}
+                        <input type='text' name="q" placeholder='Nhập ID Khách Hàng' required=True>
+                        <button type="submit">Tìm Kiếm</button>
+                    </form>
+                </div>
+                {% if query %}
+                <table>
+                    <tr class="first-row-header">
+                        <th colspan="5">Danh sách phiếu tiết kiệm</th>
+                    </tr>
+                    <tr class="second-row-header">
+                        <th class="stt">STT</th>
+                        <th class="ms">Mã số</th>
+                        <th class="ltk">Loại tiết kiệm</th>
+                        <th class="kh">Khách hàng</th>
+                        <th class="sd">Số dư</th>
+                    </tr>
+                    <div class="table-row-data">
+                        {% for item in ptk %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{item.maptk}}</td>
+                            <td>{{item.maltk.ltk}}</td>
+                            <td>{{item.makh.tenkh}}</td>
+                            <td>{{item.sodu}}</td>
+                        </tr>
+                        {% endfor %}
+                    </div>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="footer-container">
+        <div class="wrapper">
+            Footer
+        </div>
+    </div> -->
+
+    <div class="homeFooter">
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3><span class="homeHeaderLogo"><img
+                            src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                            alt="" /></span></h3>
+
+                <p class="footer-links">
+                    <a href="#" class="link-1">Trang Chủ</a>
+
+                    <a href="#">Lập Phiếu Tiết Kiệm</a>
+
+                    <a href="#">Lập Phiếu Rút Tiền</a>
+
+                    <a href="#">Tra Cứu</a>
+
+                    <a href="#">Thống Kê</a>
+
+                </p>
+
+                <p class="footer-company-name">UIT SAVE © 2022</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>UIT</span>HCM</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+84 339 876 802</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:thanhtra1882001@gmail.com">thanhtra1882001@gmail.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>About the UIT SAVE</span>
+                    An toàn, nhanh chóng, tiện dụng.
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#" title="fb"><i class="fa fa-facebook"></i></a>
+                    <a href="#" title="tw"><i class="fa fa-twitter"></i></a>
+                    <a href="#" title="in"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" title="gh"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

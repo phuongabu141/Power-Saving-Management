@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/thong_ke1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer_header.css' %}">
+</head>
+
+<body>
+    <!-- <div class="header-container">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    Logo
+                </div>
+                <div class="user">
+                    <div class="user-info">
+                        <p class="username">User name</p>
+                        <p class="id">ID</p>
+                    </div>
+                    <div class="user-avatar">
+                        <img src="./img/avatar.svg" alt="avatar">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div> -->
+
+    <!-- Header -->
+    <div class="homeHeader">
+        <div class="homeHeaderLogo">
+            <p>UIT SAVE</p>
+            <img src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                alt="" />
+        </div>
+        <div class="homeHeaderUser">
+            <a href="{%url 'normal_site:profile' user.username%} ">
+                <div class="infoUser">
+                    <p class="username">{{user.username}}</p>
+                    <p class="positon">{{position}}</p>
+                </div>
+                <div class="logoUser">
+                    <img src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+                        alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="homeBody">
+        <div class="content-container">
+            <div class="wrapper">
+                <h1 class="title">Thống kê</h1>
+                <hr>
+                {% if t is None %}
+                <div class="form">
+                    <form method="GET" action="{%url 'normal_site:thong_ke' user.username%}">
+
+                        <label for="Kiểu"> Chọn kiểu thống kê : </label>
+                        <select name="t" id="Kieu" placeholder='Chọn kiểu thống kê' Required=True>
+                            <option value="1">Thống kê theo ngày </option>
+                            <option value="2">Thống kê theo tháng</option>
+                        </select>
+                        <input type="submit" value="Thống kê">
+
+                    </form>
+                </div>
+                <br>
+                {% endif %}
+
+                {% if t == '1' %}
+                <!-- '' thôi ko phai ""-->
+                <div class="choose-area">
+                    <p>Báo cáo Doanh số hoạt động ngày</p>
+                    <br />
+                    <div class="form">
+                        <form method="GET" action="{%url 'normal_site:thong_ke' user.username%}">
+                            <div class="form-group">
+                            <label for="Kiểu"> <h3>Kiểu: </h3></label>
+                            <input type="text" id="Kieu" name="t" value="Thống kê theo ngày" readonly>
+                            <br>
+
+                            <label for="Chọn ngày"><h3>Chọn ngày: </h3> </label>
+                            <input type="date" id="date" name="d" value="2001-01-01" min="2000-01-01" max="2050-12-31"
+                                required=True>
+
+                            <input type="submit" value="Thống Kê">
+                            </div>
+                        </form>
+                    </div>
+                    <br />
+                    <table>
+                        <tr class="first-row-header">
+                            <th colspan="5">Ngày: {{date}}</th>
+                        </tr>
+                        <tr class="second-row-header">
+                            <th class="stt">STT</th>
+                            <th class="ltk">Loại tiết kiệm</th>
+                            <th class="tt">Tổng thu</th>
+                            <th class="tc">Tổng chi</th>
+                            <th class="cl">Chênh lệch</th>
+                        </tr>
+                        <div class="table-row-data">
+                            {% for i in baocaongay %}
+                            <tr>
+                                <td class="stt">{{forloop.counter}}</td>
+                                <td class="ltk">{{i.maltk.ltk}}</td>
+                                <td class="tt">{{i.tongthu}}</td>
+                                <td class="tc">{{i.tongchi}}</td>
+                                <td class="cl">{{i.chechlechthuchi}}</td>
+                            </tr>
+                            {% endfor %}
+                        </div>
+                    </table>
+                </div>
+                {% endif %}
+
+                {% if t == '2' %}
+                <div class="choose-area">
+                    <p>Báo cáo Doanh số hoạt động tháng</p>
+                    <br />
+                    <div class="form">
+                        <form method="GET" action="{%url 'normal_site:thong_ke' user.username%}">
+                            <div class="form-group">
+                            <label for="Kiểu"><h3> Kiểu: </h3></label>
+                            <input type="text" id="Kieu" name="t" value="Thống kê theo tháng" readonly>
+                            <br>
+
+                            <label for="Chọn tháng"><h3>Chọn tháng:</h3> </label>
+                            <input type="month" id="date" name="d" value="2010-01" min="2000-01" max="2050-12"
+                                required=True>
+                            <input type="submit" value="Thống Kê">
+                            </div>
+                        </form>
+                        <br>
+                        {% for i in ltk %}
+                        <table class="table__thang">
+                            <tr class="first-row-header">
+                                <th colspan="5">Loại tiết kiệm: {{i}}</th>
+                            </tr>
+                            <tr class="first-row-header">
+                                <th colspan="5">Tháng: {{date}}</th>
+                            </tr>
+                            <tr class="second-row-header">
+                                <th class="stt">STT</th>
+                                <th class="ngay">Ngày</th>
+                                <th class="tt">Sổ mở</th>
+                                <th class="tc">Sổ đóng</th>
+                                <th class="cl">Chênh lệch</th>
+                            </tr>
+                            <div class="table-row-data">
+                                {% for key, values in baocaothang.items %}
+                                {% for k in values %}
+                                {% if k.maltk.ltk == i %}
+                                <tr>
+                                    <td class="stt">{{forloop.counter}}</td>
+                                    <td class="ngay">{{k.ngaythang}}</td>
+                                    <td class="tt">{{k.phieugoi}}</td>
+                                    <td class="tc">{{k.phieudong}}</td>
+                                    <td class="cl">{{k.chenhlechdonggoi}}</td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+
+                            </div>
+                        </table>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="footer-container">
+        <div class="wrapper">
+            Footer
+        </div>
+    </div> -->
+
+    <div class="homeFooter">
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3><span class="homeHeaderLogo"><img
+                            src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                            alt="" /></span></h3>
+
+                <p class="footer-links">
+                    <a href= "{%url 'normal_site:home' user.username %}" class="link-1">Trang Chủ</a>
+
+                    <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Lập Phiếu Tiết Kiệm</a>
+
+                    <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Lập Phiếu Rút Tiền</a>
+
+                    <a href="{%url 'normal_site:tra_cuu' user.username %}">Tra Cứu</a>
+
+                    <a href="{%url 'normal_site:thong_ke' user.username %}">Thống Kê</a>
+
+                </p>
+
+                <p class="footer-company-name">UIT SAVE © 2022</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>UIT</span>HCM</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+84 339 876 802</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:thanhtra1882001@gmail.com">thanhtra1882001@gmail.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>About the UIT SAVE</span>
+                    An toàn, nhanh chóng, tiện dụng.
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#" title="fb"><i class="fa fa-facebook"></i></a>
+                    <a href="#" title="tw"><i class="fa fa-twitter"></i></a>
+                    <a href="#" title="in"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" title="gh"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

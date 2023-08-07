@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* .homeBody {
+    margin-top: 120px;
+} */
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 64px;
+    margin-top: 18px;
+}
+
+.header-container nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-container .logo {
+    background-color: #C4C4C4;
+    width: 114px;
+    height: 52px;
+    text-align: center;
+    line-height: 52px;
+}
+
+.header-container .user {
+    display: flex;
+}
+
+.header-container .user .user-info {
+    width: 128px;
+    text-align: right;
+}
+
+.header-container .user .user-avatar {
+    width: 31px;
+    margin-left: 16px;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 0;
+    margin-top: 120px;
+    min-height: 410px;
+
+}
+
+.content-container .title {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.content-container .form-body {
+    padding: 16px 32px;
+}
+
+.content-container .form-control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.form-body .form-control input {
+    display: inline-block;
+    width: 75%;
+    font-size: 18px;
+}
+
+.content-container .form-input label {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    width: 250px;
+}
+
+.content-container .classbutton .lapphieu {
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-container .lapphieu button {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(28, 111, 189);
+}
+

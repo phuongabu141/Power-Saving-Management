@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer_header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lapphieu_tk.css' %}">
+    <title>Lập phiếu tiết kiệm</title>
+</head>
+
+<body>
+    <div class="home">
+        <!-- Header -->
+        <div class="homeHeader">
+            <div class="homeHeaderLogo">
+                <p>UIT SAVE</p>
+                <img src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                    alt="" />
+            </div>
+            <div class="homeHeaderUser">
+                <a href="{%url 'normal_site:profile' user.username%} ">
+                    <div class="infoUser">
+                        <p class="username">{{user.username}}</p>
+                        <p class="positon">{{position}}</p>
+                    </div>
+                    <div class="logoUser">
+                        <img src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+                            alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="homeBody">
+            {% for message in messages %}
+
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+            </div>
+    
+            {% endfor %}
+            <form action="{% url 'normal_site:lap_phieu_tiet_kiem' user.username%}" method = 'POST' class="phieutietkiem">
+                {% csrf_token %}
+                <p class="title">LẬP PHIẾU GỬI TIẾT KIỆM</p>
+                <hr>
+                <div class="form-body">
+                    <div class="form-control">
+                        <label for="id">ID:</label>
+                        <input type="text" title="id" name='id' placeholder="Không bắt buộc nhập cho khách hàng mới">
+                    </div>
+                    <div class="form-control">
+                        <label for="name">Tên Khách Hàng:</label>
+                        <input type="text" title="name" name="tenkh" pattern="^[a-zA-Z]{1,}(?: [a-zA-Z]+){1,5}$" Required style="text-transform:uppercase" placeholder="Họ và tên viết không dấu">
+                    </div>
+                    <div class="form-control">
+                        <label for="CCCD">CCCD:</label>
+                        <input type="text" title="CCCD" name='CMND' Required pattern="^(\d{9}|\d{12}})" placeholder="9 (CMND) hoặc 12 (CCCD) chữ số">
+                    </div>
+                    <div class="form-control">
+                        <label for="address">Địa Chỉ:</label>
+                        <input type="text" title="address" name='diachi' Required>
+                    </div>
+                    <div class="form-control">
+                        <label for="money">Số Tiền Gửi:</label>
+                        <input type="text" title="sotiengoi" name='sotiengoi' Required>
+                    </div>
+                    <div class="form-control">
+                        <label for="savingtype">Loại Tiết Kiệm:</label>
+                        <select name="loaitietkiem" id="savingtype">
+                            {%for item in ltk%}
+                            <option value="{{item}}">{{item}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="date">Ngày Lập Phiếu: </label>
+                        <input type="date" id="date" title="date" name='trip-start' ReadOnly value={{date}}>
+                    </div>
+                </div>
+                <!-- <label for="date"> Ngày Lập Phiếu: <input type="date" id="current_date" name="date" value="2002-09-09" readonly></label><br> -->
+                <!-- <label for="day2"> Ngày Đóng Phiếu: <input type="text" title="day2"></label><br>  -->
+                <div class="classbutton">
+                    <div class="lapphieu">
+                        <button>Lập Phiếu</button>
+                    </div>
+                    <div class="lapvainphieu">
+                        <button>Lập Và In Phiếu</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="homeFooter">
+            <footer class="footer-distributed">
+
+                <div class="footer-left">
+
+                    <h3><span class="homeHeaderLogo"><img
+                                src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                                alt="" /></span></h3>
+
+                    <p class="footer-links">
+                        <a href="{%url 'normal_site:home' user.username %}" class="link-1">Trang Chủ</a>
+
+                        <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Lập Phiếu Tiết Kiệm</a>
+
+                        <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Lập Phiếu Rút Tiền</a>
+
+                        <a href="{%url 'normal_site:tra_cuu' user.username %}">Tra Cứu</a>
+
+                        <a href="{%url 'normal_site:thong_ke' user.username %}">Thống Kê</a>
+
+                    </p>
+
+                    <p class="footer-company-name">UIT SAVE © 2022</p>
+                </div>
+
+                <div class="footer-center">
+
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>UIT</span>HCM</p>
+                    </div>
+
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+84 339 876 802</p>
+                    </div>
+
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="mailto:thanhtra1882001@gmail.com">thanhtra1882001@gmail.com</a></p>
+                    </div>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <p class="footer-company-about">
+                        <span>About the UIT SAVE</span>
+                        An toàn, nhanh chóng, tiện dụng.
+                    </p>
+
+                    <div class="footer-icons">
+
+                        <a href="#" title="fb"><i class="fa fa-facebook"></i></a>
+                        <a href="#" title="tw"><i class="fa fa-twitter"></i></a>
+                        <a href="#" title="in"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" title="gh"><i class="fa fa-github"></i></a>
+
+                    </div>
+
+                </div>
+
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

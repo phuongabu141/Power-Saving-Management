@@ -1,0 +1,320 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer_header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_Page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slider.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <title>HomePage</title>
+</head>
+
+<body>
+    <div class="home">
+        <!-- Header -->
+        <!-- <div class="homeHeader">
+            <div class="homeHeaderLogo">
+                <p>UIT SAVE</p>
+                <img src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                    alt="" />
+            </div>
+            <div class="homeHeaderUser">
+                <a href="{%url 'normal_site:profile' user.username%} ">
+                    <div class="infoUser">
+                        <p class="username">{{user.username}}</p>
+                        <p class="positon">{{position}}</p>
+                    </div>
+                    <div class="logoUser">
+                        <img src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+                            alt="">
+                    </div>
+                </a>
+            </div>
+        </div> -->
+
+
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <span class="navbar-text">
+                    <div class="homeHeader">
+                        <div class="homeHeaderLogo">
+                            <p>UIT SAVE</p>
+                            <img src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                                alt="" />
+                        </div>
+                        <div class="homeHeaderUser">
+                            <a href="{%url 'normal_site:profile' user.username%} ">
+                                <div class="infoUser">
+                                    <p class="username">{{user.username}}</p>
+                                    <p class="positon">{{position}}</p>
+                                </div>
+                                <div class="logoUser">
+                                    <img src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+                                        alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </nav>
+
+        <!-- Body -->
+        <div class="homeBody">
+            <!-- slide -->
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="https://www.mbbank.com.vn/resources/files/KHCN/Slide/Baner-moi/2022/banner-web-1920x540-gui-tiet-kiem-trung-oto-mbbank.jpg"
+                            class="d-block w-100" alt="...">
+                        <!-- <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div> -->
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="https://www.mbbank.com.vn/resources/files/KHCN/KhuyenMai/Nam-2022/Thang-5/Doi-diem-ngay-trung-moi-ngay/wweb-home-mbbank.png"
+                            class="d-block w-100" alt="...">
+                        <!-- <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div> -->
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.mbbank.com.vn/resources/files/KHCN/Slide/Baner-moi/2022/banner-web-1920x540.jpg"
+                            class="d-block w-100" alt="...">
+                        <!-- <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div> -->
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <path
+                                d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM310.6 345.4c12.5 12.5 12.5 32.75 0 45.25s-32.75 12.5-45.25 0l-112-112C147.1 272.4 144 264.2 144 256s3.125-16.38 9.375-22.62l112-112c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L221.3 256L310.6 345.4z" />
+                        </svg></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM358.6 278.6l-112 112c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L290.8 256L201.4 166.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l112 112C364.9 239.6 368 247.8 368 256S364.9 272.4 358.6 278.6z"/></svg></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-- <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-sm-0 col-xs-0">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <button class="btn-homebody lapphieutk">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z" />
+                            </svg>
+                            <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Lập Phiếu Tiết Kiệm</a>
+                        </button>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <button class="btn-homebody tracuu">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
+                            </svg>
+                            <a href="{%url 'normal_site:tra_cuu' user.username %}">Tra Cứu</a>
+                        </button>
+                    </div>
+
+                    <div class="col-md-3 col-sm-0 col-xs-0">
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-0 col-xs-0">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <button class="btn-homebody lapphieurut">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM168 232C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H168z" />
+                            </svg>
+                            <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Lập Phiếu Rút
+                                Tiền</a>
+                        </button>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <button class="btn-homebody thongke">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M88 48C101.3 48 112 58.75 112 72V120C112 133.3 101.3 144 88 144H40C26.75 144 16 133.3 16 120V72C16 58.75 26.75 48 40 48H88zM480 64C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H192C174.3 128 160 113.7 160 96C160 78.33 174.3 64 192 64H480zM480 224C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H192C174.3 288 160 273.7 160 256C160 238.3 174.3 224 192 224H480zM480 384C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384H480zM16 232C16 218.7 26.75 208 40 208H88C101.3 208 112 218.7 112 232V280C112 293.3 101.3 304 88 304H40C26.75 304 16 293.3 16 280V232zM88 368C101.3 368 112 378.7 112 392V440C112 453.3 101.3 464 88 464H40C26.75 464 16 453.3 16 440V392C16 378.7 26.75 368 40 368H88z" />
+                            </svg>
+                            <a href="{%url 'normal_site:thong_ke' user.username %}">Thống Kê</a>
+                        </button>
+                    </div>
+
+                    <div class="col-md-3 col-sm-0 col-xs-0">
+                    </div>
+
+                </div>
+            </div> -->
+            {% for message in messages %}
+
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+
+             {% endfor %}
+             
+            <div class="special-func">
+                <p>CÁC CHỨC NĂNG NỔI BẬT</p>
+                <div class="func-container">
+                    <div class="func-col-4">
+                        <div class="img-wrapper">
+                            <img src="{% static 'img/lap_phieu.png' %}" alt="lap_phieu">
+                        </div>
+                        <h3>Lập phiếu tiết kiệm</h3>
+                        <p>Thủ tục lập phiếu tiết kiệm online linh hoạt và an toàn, lãi suất cao so với tiết kiệm truyền
+                            thống.</p>
+                        <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Xem chi tiết</a>
+                    </div>
+                    <div class="func-col-4">
+                        <div class="img-wrapper">
+                            <img src="{% static 'img/rut_tien.png' %}" alt="rut_tien">
+                        </div>
+                        <h3>Lập phiếu rút tiền</h3>
+                        <p>Rút tiết kiệm online nhanh chóng, đơn giản, thuận tiện, tiết kiệm thời gian cho khách hàng.
+                        </p>
+                        <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Xem chi tiết</a>
+                    </div>
+                    <div class="func-col-4">
+                        <div class="img-wrapper">
+                            <img src="{% static 'img/tra_cuu.png' %}" alt="tra_cuu">
+                        </div>
+                        <h3>Tra cứu</h3>
+                        <p>Tìm kiếm thông tin nhanh nhất có thể, độ chính xác cao và đáp ứng được nhu cầu của người
+                            dùng.</p>
+                        <a href="{%url 'normal_site:tra_cuu' user.username %}">Xem chi tiết</a>
+                    </div>
+                    <div class="func-col-4">
+                        <div class="img-wrapper">
+                            <img src="{% static 'img/thong_ke.png' %}" alt="thong_ke">
+                        </div>
+                        <h3>Thống kê</h3>
+                        <p>Tìm kiếm thông tin nhanh nhất có thể, độ chính xác cao và đáp ứng được nhu cầu của người
+                            dùng.</p>
+                        <a href="{%url 'normal_site:thong_ke' user.username %}">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <div class="homeFooter">
+            <footer class="footer-distributed">
+
+                <div class="footer-left">
+
+                    <h3><span class="homeHeaderLogo"><img
+                                src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+                                alt="" /></span></h3>
+
+                    <p class="footer-links">
+                        <a href="{%url 'normal_site:home' user.username %}" class="link-1">Trang Chủ</a>
+
+                        <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Lập Phiếu Tiết Kiệm</a>
+
+                        <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Lập Phiếu Rút Tiền</a>
+
+                        <a href="{%url 'normal_site:tra_cuu' user.username %}">Tra Cứu</a>
+
+                        <a href="{%url 'normal_site:thong_ke' user.username %}">Thống Kê</a>
+
+                    </p>
+
+                    <p class="footer-company-name">UIT SAVE © 2022</p>
+                </div>
+
+                <div class="footer-center">
+
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>UIT</span>HCM</p>
+                    </div>
+
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+84 339 876 802</p>
+                    </div>
+
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="mailto:thanhtra1882001@gmail.com">thanhtra1882001@gmail.com</a></p>
+                    </div>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <p class="footer-company-about">
+                        <span>About the UIT SAVE</span>
+                        An toàn, nhanh chóng, tiện dụng.
+                    </p>
+
+                    <div class="footer-icons">
+
+                        <a href="#" title="fb"><i class="fa fa-facebook"></i></a>
+                        <a href="#" title="tw"><i class="fa fa-twitter"></i></a>
+                        <a href="#" title="in"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" title="gh"><i class="fa fa-github"></i></a>
+
+                    </div>
+
+                </div>
+
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

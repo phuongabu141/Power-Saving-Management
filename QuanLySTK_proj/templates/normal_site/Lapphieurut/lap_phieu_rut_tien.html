@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lập phiếu rút tiết kiệm</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/lap_phieu_rut_tien.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/footer_header.css' %}">
+</head>
+
+<body>
+  <!-- <div class="header-container">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    Logo
+                </div>
+                <div class="user">
+                    <div class="user-info">
+                        <p class="username">User name</p>
+                        <p class="id">ID</p>
+                    </div>
+                    <div class="user-avatar">
+                        <img src="{% static 'img/avatar.svg' %}" alt="avatar">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div> -->
+  <!-- Header -->
+  <div class="homeHeader">
+    <div class="homeHeaderLogo">
+      <p>UIT SAVE</p>
+      <img
+        src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+        alt="" />
+    </div>
+    <div class="homeHeaderUser">
+      <a href="{%url 'normal_site:profile' user.username%} ">
+        <div class="infoUser">
+          <p class="username">{{user.username}}</p>
+          <p class="positon">{{position}}</p>
+        </div>
+        <div class="logoUser">
+          <img
+            src="https://banner2.cleanpng.com/20180716/lra/kisspng-logo-person-user-person-icon-5b4d2bd2236ca6.6010202115317841461451.jpg"
+            alt="">
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="content-container">
+    {% for message in messages %}
+
+  <div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert"></a>
+    {{ message }}
+  </div>
+
+  {% endfor %}
+  <br />
+    <div class="wrapper">
+      <h1 class="title">Lập phiếu rút tiết kiệm</h1>
+      <hr />
+
+      {% if closed %}
+      <div class="alert alert-danger">
+        <strong>Phiếu đã bị khóa!</strong>
+      </div>
+      {% endif %} {% if undue %}
+      <div class="alert alert-danger">
+        <strong>Phiếu không thể rút do chưa đến kỳ hạn</strong>
+      </div>
+      {% endif %} {% if ok %}
+      <p>Mã Phiếu Tiết Kiệm: {{phieutietkiem.maptk}}</p>
+      <p>Tên Khách Hàng: {{khachhang.tenkh}}</p>
+      <p>CCCD: {{khachhang.cccd}}</p>
+      <p>Địa Chỉ: {{khachhang.diachi}}</p>
+      <p>Loại Tiết Kiệm: {{phieutietkiem.maltk.ltk}}</p>
+      <p>Số dư khả dụng:{{sodukhadu}}</p>
+      <p>Ngày Gởi:{{phieutietkiem.ngaymophieu}}</p>
+      <p>Ngày Được Rút (Ngày Đến Kỳ Hạn):{{ngayhethan}}</p>
+      <p>Trạng thái: Đang mở</p>
+
+      <form action="" method="POST" class="ruttien">
+        {% csrf_token %} {% if is_ruthet == False %}
+        <div class="form-group">
+          <label for="">Số tiền rút</label>
+          <input type="decimal" class="form-control" name="sotien" class="form-control" placeholder="Nhập số tiền rút"
+            min="0" />
+        </div>
+
+        <div class="classbutton">
+          <input type="submit" class="btn btn-primary" value="Rút Phiếu" name="rut_1" />
+          <input type="submit" class="btn btn-primary" value="Hủy" name="huy" />
+        </div>
+        {% else %}
+        <div class="alert alert-danger">
+          <strong>Phiếu Tiết Kiệm Này Buộc Phải Rút Hết Số Tiền Và Đóng
+            Phiếu</strong>
+        </div>
+
+        <div class="classbutton">
+          <input type="submit" class="btn btn-primary" value="Rút Phiếu" name="rut_2" />
+          <input type="submit" class="btn btn-primary" value="Hủy" name="huy" />
+        </div>
+        {% endif %}
+      </form>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- <div class="footer-container">
+        <div class="wrapper">
+            Footer
+        </div>
+    </div> -->
+
+  <div class="homeFooter">
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3><span class="homeHeaderLogo"><img
+              src="https://wp-tid.zillowstatic.com/trulia/wp-content/uploads/sites/3/2019/03/Tips-for-saving-to-buy-a-house-12a08b-1024x512.jpg"
+              alt="" /></span></h3>
+
+                <p class="footer-links">
+                    <a href="{%url 'normal_site:home' user.username %}" class="link-1">Trang Chủ</a>
+
+                    <a href="{%url 'normal_site:lap_phieu_tiet_kiem' user.username %}">Lập Phiếu Tiết Kiệm</a>
+
+                      <a href="{%url 'normal_site:tim_kiem_phieu_tiet_kiem' user.username %}">Lập Phiếu Rút Tiền</a>
+
+                      <a href="{%url 'normal_site:tra_cuu' user.username %}">Tra Cứu</a>
+
+                      <a href="{%url 'normal_site:thong_ke' user.username %}">Thống Kê</a>
+
+        </p>
+
+        <p class="footer-company-name">UIT SAVE © 2022</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>UIT</span>HCM</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+84 339 876 802</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:thanhtra1882001@gmail.com">thanhtra1882001@gmail.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the UIT SAVE</span>
+          An toàn, nhanh chóng, tiện dụng.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#" title="fb"><i class="fa fa-facebook"></i></a>
+          <a href="#" title="tw"><i class="fa fa-twitter"></i></a>
+          <a href="#" title="in"><i class="fa fa-linkedin"></i></a>
+          <a href="#" title="gh"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+  </div>
+</body>
+
+</html>

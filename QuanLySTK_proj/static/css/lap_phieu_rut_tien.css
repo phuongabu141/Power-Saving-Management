@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 64px;
+    margin-top: 18px;
+}
+
+.header-container nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-container .logo {
+    background-color: #C4C4C4;
+    width: 114px;
+    height: 52px;
+    text-align: center;
+    line-height: 52px;
+}
+
+.header-container .user {
+    display: flex;
+}
+
+.header-container .user .user-info {
+    width: 128px;
+    text-align: right;
+}
+
+.header-container .user .user-avatar {
+    width: 31px;
+    margin-left: 16px;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 140px;
+    min-height: 390px;
+}
+
+.content-container .title {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.content-container hr {
+    color: #48B2FF;
+}
+
+.content-container .form-input {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.content-container .form-control {
+    padding: 2px;
+    border-bottom: 1px solid #B6B5B5;
+}
+
+.content-container .form-input label {
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    width: 300px;
+}
+
+.content-container .form-input input {
+    margin-top: 16px;
+    font-size: 16px;
+    border: none;
+    color: #000;
+    display: inline-block;
+}
+
+.content-container .form-input .submit-input {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 32px;
+}
+
+.content-container .form-input .submit-input input {
+    width: 220px;
+    padding: 6px 0;
+}
+
+.content-container .form-input .submit-input .rp-input {
+    background-color: #FFC657;
+    border: 1px solid #B36000;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.content-container .form-input .submit-input .rpip-input {
+    background-color: #e82e2e;
+    border: 1px solid #960000;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.footer-container {
+    background-color: #C4C4C4;
+    height: 64px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+.footer-container .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+

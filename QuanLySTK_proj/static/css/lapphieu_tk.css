@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.homeBody {
+    font-family: "Roboto", sans-serif;
+    width: 800px;
+    margin: 0 auto;
+    padding: 32px 0px;
+    margin-top: 92px;
+}
+
+.phieutietkiem .title {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.phieutietkiem .form-body {
+    padding: 16px 32px;
+}
+
+.form-body .form-control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.form-body .form-control:first-child {
+    margin-top: 0;
+}
+
+.form-body .form-control label {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-body .form-control select,
+.form-body .form-control input {
+    display: inline-block;
+    width: 75%;
+    font-size: 18px;
+}
+
+.classbutton {
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lapphieu > button {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(28, 111, 189);
+}
+
+.lapvainphieu > button {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(28, 189, 55);
+}
